@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.details.BookDetailsActivity">
+
+    <include layout="@layout/include_toobar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/book_details_title_label"
+        style="@style/myTextViewLabel"
+        android:paddingLeft="16px"
+        android:paddingTop="16px"
+
+        />
+
+    <TextView
+        android:id="@+id/bookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Title 1"
+        android:paddingLeft="16px"
+        android:paddingTop="8px"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/book_details_description_label"
+        style="@style/myTextViewLabel"
+        android:paddingLeft="16px"
+        android:paddingTop="8px"
+        />
+
+    <TextView
+        android:id="@+id/bookDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Description 1"
+        android:paddingLeft="16px"
+        android:paddingTop="8px"
+        />
+
+
+</LinearLayout>
