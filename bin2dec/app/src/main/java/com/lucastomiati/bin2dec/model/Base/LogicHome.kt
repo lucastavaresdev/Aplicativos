@@ -1,4 +1,4 @@
-package com.lucastomiati.bin2dec.Base
+package com.lucastomiati.bin2dec.model.Base
 
 open class LogicHome {
 
