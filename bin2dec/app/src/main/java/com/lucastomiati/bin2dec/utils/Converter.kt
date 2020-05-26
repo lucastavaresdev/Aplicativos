@@ -1,6 +1,6 @@
-package com.lucastomiati.bin2dec.model.Base
+package com.lucastomiati.bin2dec.Utils
 
-open class LogicHome {
+open class Conversor {
 
     fun toDecimal(binario:String) : String{
         var potencia: Int = 0
