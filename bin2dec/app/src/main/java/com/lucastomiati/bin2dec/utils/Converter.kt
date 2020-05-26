@@ -1,6 +1,6 @@
-package com.lucastomiati.bin2dec.Utils
+package com.lucastomiati.bin2dec.utils
 
-open class Conversor {
+open class Converter {
 
     fun toDecimal(binario:String) : String{
         var potencia: Int = 0

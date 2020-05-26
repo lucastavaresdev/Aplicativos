@@ -1,9 +1,15 @@
-package com.lucastomiati.bin2dec.Utils
+package com.lucastomiati.bin2dec.utils
 
+
+import android.content.Context
 import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
 
-interface teste : View.OnKeyListener {
+
+open class ShieldKeyboard(context: Context) : View.OnKeyListener {
+
+    var context = context
 
     override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
         when (keyCode) {
@@ -11,9 +17,10 @@ interface teste : View.OnKeyListener {
                 return false
             }
             else -> {
-                //Toast.makeText(this, "Por Gentileza Digitar 0 ou 1", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"teste",Toast.LENGTH_LONG).show()
                 return true
             }
         }
     }
 }
+

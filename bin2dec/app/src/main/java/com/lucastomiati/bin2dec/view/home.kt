@@ -1,48 +1,59 @@
 package com.lucastomiati.bin2dec.view
 
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.Toast
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.lucastomiati.bin2dec.model.Base.LogicHome
-import com.lucastomiati.bin2dec.model.Base.SetupToolBar
+import androidx.recyclerview.widget.LinearLayoutManager
+
 import com.lucastomiati.bin2dec.R
+import com.lucastomiati.bin2dec.databinding.HomeBinding
+import com.lucastomiati.bin2dec.service.db.BinarioDataBase
+import com.lucastomiati.bin2dec.service.db.BinarioRepository
+import com.lucastomiati.bin2dec.service.db.BinarioViewModelFactory
+import com.lucastomiati.bin2dec.service.viewmodel.HomeViewModel
+import com.lucastomiati.bin2dec.view.componentes.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.home.*
 
-class Home : SetupToolBar(), View.OnKeyListener, View.OnClickListener {
+
+class Home() : AppCompatActivity() {
+    private lateinit var binding: HomeBinding
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home)
+        binding = DataBindingUtil.setContentView(this,R.layout.home)
 
-        edithome.setOnKeyListener(this)
-        btnCalcular.setOnClickListener(this)
+        val dao = BinarioDataBase.getInstance(application).binarioDao
+        val repository = BinarioRepository(dao)
+        val factory = BinarioViewModelFactory(repository)
 
-        val viewModel = ViewModelProvider(this).get(homeViewModel::class.java)
+         homeViewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
+
+        binding.myhomeViewModel = homeViewModel
+        binding.lifecycleOwner = this
 
 
+        initRecyclerView()
     }
 
-    override fun onClick(view: View) {
-        val id = view.id
-        if (id == R.id.btnCalcular) {
-            val resumoDois = LogicHome()
-            resultado.setText(resumoDois.toDecimal(edithome.getText().toString()))
-        }
+    private fun initRecyclerView(){
+        binding.lista.layoutManager = LinearLayoutManager(this)
+        displaySubscribersList()
     }
 
-    override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
-        when (keyCode) {
-            KeyEvent.KEYCODE_0, KeyEvent.KEYCODE_1, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_DEL -> {
-                return false
-            }
-            else -> {
-                Toast.makeText(this, "Por Gentileza Digitar 0 ou 1", Toast.LENGTH_LONG).show()
-                return true
-            }
-        }
-
+    private fun displaySubscribersList(){
+        homeViewModel.conversoes.observe(this, Observer {
+            binding.lista.adapter = RecyclerViewAdapter(it)
+        })
+//        lista.subscribers.observe(this, Observer {
+//            Log.i("MYTAG", it.toString())
+//            binding.subscriberRecyclerView.adapter = MyRecyclerViewAdapter(
+//                it, {selectedItem:Subscriber -> listItemClicked(selectedItem)})
+//         })
     }
 }
+
+

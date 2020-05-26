@@ -1,4 +1,4 @@
-package com.lucastomiati.bin2dec.model.Base
+package com.lucastomiati.bin2dec.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
