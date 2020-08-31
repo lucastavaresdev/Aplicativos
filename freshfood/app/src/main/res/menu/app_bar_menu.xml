@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/home"
+        android:title=""
+        android:icon="@drawable/icon_store"
+        android:iconTint="@color/colorSecundary"
+        />
 
+    <item android:id="@+id/home2"
+        android:title=""
+        android:icon="@drawable/icon_recipes"
+        android:iconTint="@color/colorSecundary"
+        />
+
+    <item
+        android:enabled="false"
+        android:title="@null" />
+
+
+    <item android:id="@+id/home3"
+        android:title=""
+        android:icon="@drawable/icon_cart"
+        android:iconTint="@color/colorSecundary"
+        />
+
+    <item android:id="@+id/home4"
+        android:title=""
+        android:icon="@drawable/icon_store"
+        android:iconTint="@color/colorSecundary"
+        />
 </menu>

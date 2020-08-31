@@ -1,10 +1,11 @@
-package com.lucastomiati.freshfoodapp
+package com.lucastomiati.freshfoodapp.fraguiments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.lucastomiati.freshfoodapp.R
 
 /**
  * A simple [Fragment] subclass.

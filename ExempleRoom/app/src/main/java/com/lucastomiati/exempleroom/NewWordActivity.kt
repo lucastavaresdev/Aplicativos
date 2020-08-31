@@ -19,7 +19,8 @@ class NewWordActivity : AppCompatActivity() {
         editWordView = findViewById(R.id.edit_word)
 
         val button = findViewById<Button>(R.id.button_save)
-        button.setOnClickListener {
+      
+	  button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editWordView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)

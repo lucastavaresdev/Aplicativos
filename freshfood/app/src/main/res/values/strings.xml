@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">freshfoodapp</string>
+    <string name="app_store">Store</string>
+    <string name="app_seach">Seach</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

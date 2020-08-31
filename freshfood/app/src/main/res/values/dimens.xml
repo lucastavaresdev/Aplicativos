@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="corner_size">15</dimen>
+    <dimen name="stroke_width">22</dimen>
+    <dimen name="elevation">22</dimen>
+</resources>
